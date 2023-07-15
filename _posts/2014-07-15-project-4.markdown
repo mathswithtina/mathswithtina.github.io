@@ -1,6 +1,6 @@
 ---
-title: IB MATH (HL)
-subtitle: Website Design
+title: PURE MATHEMATICS 1
+subtitle: EDEXCEL INTERNATIONAL A LEVEL
 layout: default
 modal-id: 4
 date: 2014-07-15
