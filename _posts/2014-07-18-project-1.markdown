@@ -1,6 +1,6 @@
 ---
-title: კალკულუსი
-subtitle: Website Design
+title: ეროვნული გამოცდები
+subtitle: -
 layout: default
 modal-id: 1
 date: 2014-07-18
