@@ -1,6 +1,6 @@
 ---
-title: Calculus 
-subtitle: (კალკულუსი)
+title: კალკულუსი
+subtitle: უმაღლესი მათემატიკა
 layout: default
 modal-id: 2
 date: 2014-07-17
