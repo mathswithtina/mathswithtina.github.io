@@ -1,5 +1,5 @@
 ---
-title: Golden
+title: IB MATH (SL)
 subtitle: Website Design
 layout: default
 modal-id: 3
