@@ -1,5 +1,5 @@
 ---
-title: PURE MATHEMATICS 1
+title: PURE MATHEMATICS 2
 subtitle: EDEXCEL INTERNATIONAL A LEVEL
 layout: default
 modal-id: 6
