@@ -1,6 +1,6 @@
 ---
-title: Startup Framework
-subtitle: Website Design
+title: STATISTICS 1
+subtitle: PEARSON EDEXCEL INTERNATIONAL A LEVEL
 layout: default
 modal-id: 5
 date: 2014-07-14
