@@ -1,5 +1,5 @@
 ---
-title: Escape
+title: ეროვნული გამოცდები
 subtitle: Website Design
 layout: default
 modal-id: 2
