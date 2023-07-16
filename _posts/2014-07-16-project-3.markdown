@@ -1,5 +1,5 @@
 ---
-title: Mathematics core topics SL 1
+title: IB SL Analysis & Approaches
 subtitle: IB Diploma Programme
 layout: default
 modal-id: 3
