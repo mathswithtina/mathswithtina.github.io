@@ -9,27 +9,27 @@ description: "Write an awesome description for your new site here. You can edit 
 
 # Team names, titles and social links
 people:
-- name: Tina Mgeladze
-  pic: 1
-  position: Lead Designer
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
-
-#- name: Larry Parker
-#  pic: 2
-#  position: Lead Marketer
+#- name: Tina Mgeladze
+#  pic: 1
+#  position: Lead Designer
 #  social:
 #    - title: twitter
 #      url: #
 #    - title: facebook
 #      url: #
-#    - title: linkedin
+#    - title: stack-overflow
 #      url: #
+
+- name: Tina Mgeladze
+  pic: 2
+  position: Lead Marketer
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: linkedin
+      url: #
 
 #- name: Diana Petersen
 #  pic: 3
