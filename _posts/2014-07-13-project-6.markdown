@@ -1,11 +1,11 @@
 ---
-title: PURE MATHEMATICS 2
+title: STATISTICS 1 & 2
 subtitle: EDEXCEL INTERNATIONAL A LEVEL
 layout: default
 modal-id: 6
 date: 2014-07-15
-img: roundicons.png
-thumbnail: roundicons-thumbnail.png
+img: treehouse.png
+thumbnail: treehouse-thumbnail.png
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap
