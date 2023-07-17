@@ -1,11 +1,11 @@
 ---
-title: STATISTICS 1
-subtitle: PEARSON EDEXCEL INTERNATIONAL A LEVEL
+title: PURE MATHEMATICS 1 & 2
+subtitle: EDEXCEL INTERNATIONAL A LEVEL
 layout: default
 modal-id: 5
 date: 2014-07-14
-img: treehouse.png
-thumbnail: treehouse-thumbnail.png
+img: roundicons.png
+thumbnail: roundicons-thumbnail.png
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap
