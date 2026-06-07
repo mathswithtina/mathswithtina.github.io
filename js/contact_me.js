@@ -19,16 +19,16 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "//formspree.io/mathswithtina@gmail.com",
+                url: "https://formspree.io/f/meewavrw",
                 method: "POST",
                 data: {
                     name: name,
                     phone: phone,
                     email: email,
-                    message: message,
-		    _gotcha: gotcha
+                    message: message
                 },
-		dataType: "json",
+                dataType: "json",
+                headers: { "Accept": "application/json" },
                 cache: false,
                 success: function(data) {
                     // Success message
@@ -40,7 +40,7 @@ $(function() {
 		    $('#success > .alert-success')
                         .append(firstName)
 		    $('#success > .alert-success')
-                        .append(", thank you for your message.</strong>");
+                        .append(", მადლობა თქვენი შეტყობინებისთვის. მალე დაგიკავშირდებით!</strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
@@ -52,7 +52,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#success > .alert-danger').append("<strong>სამწუხაროდ " + firstName + ", შეტყობინება ვერ გაიგზავნა. გთხოვთ სცადოთ მოგვიანებით.");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
