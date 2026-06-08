@@ -1,40 +1,46 @@
- <!-- Portfolio Modals -->
- {% for post in site.posts %}
-    <div class="portfolio-modal modal fade" id="portfolioModal{{ post.modal-id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>{{ post.title }}</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
-                            <p>{{ post.description }}</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">{{ post.client }}</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">{{ post.project-date }}</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">{{ post.category }}</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> დახურვა</button>
+<!-- Portfolio Modals -->
+{% for post in site.posts %}
+<div class="portfolio-modal modal fade" id="portfolioModal{{ post.modal-id }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr"><div class="rl"></div></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body" style="text-align:center;padding:60px 20px;">
+
+                        <div style="width:80px;height:80px;border-radius:50%;background:{{ post.course-color }};display:inline-flex;align-items:center;justify-content:center;font-size:32px;color:#fff;margin-bottom:24px;">
+                            <i class="fa {{ post.course-icon }}"></i>
                         </div>
+
+                        <h2 data-ka="{{ post.title-ka }}" data-en="{{ post.title-en }}">{{ post.title }}</h2>
+
+                        <div style="display:inline-block;background:{{ post.course-color }};color:#fff;font-weight:700;padding:5px 18px;border-radius:20px;margin:12px 0 24px;font-size:0.95em;"
+                             data-ka="${{ post.price }} გაკვეთილზე" data-en="${{ post.price }} per lesson">
+                            ${{ post.price }} per lesson
+                        </div>
+
+                        <hr class="star-primary">
+
+                        <p style="font-size:1.05em;line-height:1.8;color:#555;margin-bottom:30px;"
+                           data-ka="{{ post.description-ka }}"
+                           data-en="{{ post.description-en }}">{{ post.description-en }}</p>
+
+                        <a href="#contact" class="btn btn-xl page-scroll" data-dismiss="modal"
+                           data-ka="უფასო გაკვეთილის დაჯავშნა" data-en="Book a Free Lesson">
+                            Book a Free Lesson
+                        </a>
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left:10px;">
+                            <i class="fa fa-times"></i>
+                            <span data-ka="დახურვა" data-en="Close">Close</span>
+                        </button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endfor %}

@@ -1,15 +1,12 @@
 ---
-title: კალკულუსი
-subtitle: უმაღლესი მათემატიკა
-layout: default
+title-ka: A Levels
+title-en: A Levels
+title: A Levels
 modal-id: 2
+price: 30
+course-color: "#06D6A0"
+course-icon: fa-book
+description-ka: "A-Level მათემატიკა მოიცავს სუფთა მათემატიკას, სტატისტიკას და მექანიკას. აუცილებელია ბრიტანულ და საერთაშორისო უნივერსიტეტებში ჩაბარებისთვის. ვასწავლი Edexcel და Cambridge A-Level პროგრამებზე."
+description-en: "A-Level Mathematics covers pure maths, statistics and mechanics. Essential for entry to UK and international universities. I teach Edexcel and Cambridge A-Level syllabuses."
 date: 2014-07-17
-img: escape.png
-thumbnail: escape-thumbnail.png
-alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.
-
 ---

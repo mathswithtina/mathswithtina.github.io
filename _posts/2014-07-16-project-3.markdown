@@ -1,15 +1,12 @@
 ---
-title: IB SL Analysis & Approaches
-subtitle: IB Diploma Programme
-layout: default
+title-ka: IB Math SL
+title-en: IB Math SL
+title: IB Math SL
 modal-id: 3
+price: 25
+course-color: "#A78BFA"
+course-icon: fa-star-o
+description-ka: "IB Analysis & Approaches SL — სტანდარტული დონის IB მათემატიკა სტუდენტებისთვის, რომლებიც გეგმავენ მათემატიკის გამოყენებას მომავალ სწავლებაში. მოიცავს კალკულუსს, სტატისტიკას, ალგებრას და ფუნქციებს."
+description-en: "IB Analysis & Approaches SL — the standard level IB mathematics course for students who will use maths in their future studies. Covers calculus, statistics, algebra and functions."
 date: 2014-07-16
-img: golden.png
-thumbnail: golden-thumbnail.png
-alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.
-
 ---

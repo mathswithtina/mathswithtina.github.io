@@ -1,29 +1,93 @@
 <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading" data-ka="კურსების გალერეა" data-en="Course Gallery">კურსების გალერეა</h2>
-                    <h3 class="section-subheading text-muted" data-ka="გთავაზობთ მათემატიკის კურსების ჩამონათვალს." data-en="Explore our mathematics course offerings.">გთავაზობთ მათემატიკის კურსების ჩამონათვალს.</h3>
-                </div>
-            </div>
-            <div class="row">
-            {% for post in site.posts %}
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/{{ post.thumbnail }}" class="img-responsive img-centered" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>{{ post.title }}</h4>
-                        <p class="text-muted">{{ post.subtitle }}</p>
-                    </div>
-                </div>
-            {% endfor %}
+<style>
+  .course-card {
+    display: block;
+    background: #1a1a2e;
+    border-radius: 10px;
+    padding: 36px 24px 28px;
+    text-align: center;
+    margin-bottom: 28px;
+    cursor: pointer;
+    border: 1px solid #2a2a3e;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cc);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.35);
+    border-color: var(--cc);
+    text-decoration: none;
+  }
+  .course-card:hover::before { transform: scaleX(1); }
+
+  .course-icon {
+    width: 74px; height: 74px;
+    border-radius: 50%;
+    background: var(--cc);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 18px;
+    transition: transform 0.3s ease;
+  }
+  .course-card:hover .course-icon { transform: scale(1.1); }
+
+  .course-card h4 { color: #fff; font-size: 1.25em; margin-bottom: 6px; }
+
+  .course-price {
+    display: inline-block;
+    background: var(--cc);
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .course-more {
+    color: var(--cc);
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+</style>
+
+<section id="portfolio" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading" data-ka="კურსების გალერეა" data-en="Course Gallery">კურსების გალერეა</h2>
+                <h3 class="section-subheading text-muted" data-ka="გთავაზობთ მათემატიკის კურსების ჩამონათვალს." data-en="Explore our mathematics course offerings.">გთავაზობთ მათემატიკის კურსების ჩამონათვალს.</h3>
             </div>
         </div>
-    </section>
+        <div class="row">
+        {% for post in site.posts %}
+            <div class="col-md-4 col-sm-6">
+                <a class="course-card" href="#portfolioModal{{ post.modal-id }}" data-toggle="modal" style="--cc: {{ post.course-color }};">
+                    <div class="course-icon">
+                        <i class="fa {{ post.course-icon }}"></i>
+                    </div>
+                    <h4 data-ka="{{ post.title-ka }}" data-en="{{ post.title-en }}">{{ post.title }}</h4>
+                    <div class="course-price" data-ka="${{ post.price }} / გაკვეთილი" data-en="${{ post.price }} / lesson">${{ post.price }} / lesson</div>
+                    <div class="course-more" data-ka="დეტალები →" data-en="Details →">Details →</div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
