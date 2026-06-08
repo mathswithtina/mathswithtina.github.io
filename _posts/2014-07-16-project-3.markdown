@@ -1,12 +1,22 @@
 ---
+title: IB Math SL
 title-ka: IB Math SL
 title-en: IB Math SL
-title: IB Math SL
 modal-id: 3
 price: 25
 course-color: "#A78BFA"
 course-icon: fa-star-o
-description-ka: "IB Analysis & Approaches SL — სტანდარტული დონის IB მათემატიკა სტუდენტებისთვის, რომლებიც გეგმავენ მათემატიკის გამოყენებას მომავალ სწავლებაში. მოიცავს კალკულუსს, სტატისტიკას, ალგებრას და ფუნქციებს."
-description-en: "IB Analysis & Approaches SL — the standard level IB mathematics course for students who will use maths in their future studies. Covers calculus, statistics, algebra and functions."
+features-en:
+  - Analysis & Approaches syllabus
+  - Calculus, statistics & algebra
+  - Internal Assessment support
+  - First lesson free
+features-ka:
+  - Analysis & Approaches სილაბუსი
+  - კალკულუსი, სტატისტიკა და ალგებრა
+  - Internal Assessment-ის მხარდაჭერა
+  - პირველი გაკვეთილი უფასო
+description-ka: "IB Analysis & Approaches SL სტუდენტებისთვის, რომლებიც გეგმავენ მათემატიკის გამოყენებას მომავალ სწავლებაში."
+description-en: "IB Analysis & Approaches SL for students who will use maths in their future studies."
 date: 2014-07-16
 ---

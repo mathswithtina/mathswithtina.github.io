@@ -1,12 +1,22 @@
 ---
+title: MYP
 title-ka: MYP
 title-en: MYP
-title: MYP
 modal-id: 6
 price: 25
 course-color: "#FF9F1C"
 course-icon: fa-puzzle-piece
-description-ka: "IB Middle Years Programme მათემატიკა 11-16 წლის მოსწავლეებისთვის. აყალიბებს მყარ საფუძველს ალგებრაში, გეომეტრიაში და სტატისტიკაში IB Diploma-ზე გადასვლამდე."
-description-en: "IB Middle Years Programme mathematics for students aged 11–16. Builds a strong foundation in algebra, geometry and statistics in preparation for the IB Diploma."
+features-en:
+  - IB Middle Years Programme
+  - Algebra, geometry & statistics
+  - Foundation for IB Diploma
+  - First lesson free
+features-ka:
+  - IB Middle Years Programme
+  - ალგებრა, გეომეტრია და სტატისტიკა
+  - IB Diploma-ს საფუძველი
+  - პირველი გაკვეთილი უფასო
+description-ka: "IB Middle Years Programme მათემატიკა 11-16 წლის მოსწავლეებისთვის."
+description-en: "IB Middle Years Programme mathematics for students aged 11–16."
 date: 2014-07-13
 ---

@@ -1,12 +1,22 @@
 ---
+title: A Levels
 title-ka: A Levels
 title-en: A Levels
-title: A Levels
 modal-id: 2
 price: 30
 course-color: "#06D6A0"
 course-icon: fa-book
-description-ka: "A-Level მათემატიკა მოიცავს სუფთა მათემატიკას, სტატისტიკას და მექანიკას. აუცილებელია ბრიტანულ და საერთაშორისო უნივერსიტეტებში ჩაბარებისთვის. ვასწავლი Edexcel და Cambridge A-Level პროგრამებზე."
-description-en: "A-Level Mathematics covers pure maths, statistics and mechanics. Essential for entry to UK and international universities. I teach Edexcel and Cambridge A-Level syllabuses."
+features-en:
+  - Pure maths, statistics & mechanics
+  - Edexcel & Cambridge boards
+  - University application preparation
+  - First lesson free
+features-ka:
+  - სუფთა მათემატიკა, სტატისტიკა და მექანიკა
+  - Edexcel და Cambridge პროგრამები
+  - უნივერსიტეტში ჩაბარების მომზადება
+  - პირველი გაკვეთილი უფასო
+description-ka: "A-Level მათემატიკა მოიცავს სუფთა მათემატიკას, სტატისტიკას და მექანიკას. ვასწავლი Edexcel და Cambridge A-Level სილაბუსებზე."
+description-en: "A-Level Mathematics covers pure maths, statistics and mechanics. I teach Edexcel and Cambridge A-Level syllabuses."
 date: 2014-07-17
 ---

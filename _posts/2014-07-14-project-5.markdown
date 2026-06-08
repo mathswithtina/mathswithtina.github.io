@@ -1,12 +1,22 @@
 ---
+title: Calculus
 title-ka: Calculus
 title-en: Calculus
-title: Calculus
 modal-id: 5
 price: 30
 course-color: "#FFD60A"
 course-icon: fa-area-chart
-description-ka: "დახვეწილი კალკულუსის კურსი, რომელიც მოიცავს ლიმიტებს, დიფერენციაციას, ინტეგრაციას და მათ გამოყენებებს. იდეალურია უნივერსიტეტის მოსამზადებლად ან IB/A-Level-ის დასაზღვევად."
-description-en: "A dedicated calculus course covering limits, differentiation, integration and their applications. Ideal for university preparation or to strengthen IB and A-Level performance."
+features-en:
+  - Limits, derivatives & integrals
+  - IB & A-Level exam support
+  - University-level preparation
+  - First lesson free
+features-ka:
+  - ლიმიტები, წარმოებულები და ინტეგრალები
+  - IB და A-Level გამოცდების მხარდაჭერა
+  - უნივერსიტეტისთვის მომზადება
+  - პირველი გაკვეთილი უფასო
+description-ka: "კალკულუსის კურსი, რომელიც მოიცავს ლიმიტებს, დიფერენციაციას, ინტეგრაციას და მათ გამოყენებებს."
+description-en: "A dedicated calculus course covering limits, differentiation, integration and their applications."
 date: 2014-07-14
 ---

@@ -1,73 +1,106 @@
 <!-- Portfolio Grid Section -->
 <style>
-  .course-card {
-    display: block;
-    background: #1a1a2e;
+  .pricing-card {
+    background: #fff;
     border-radius: 10px;
-    padding: 36px 24px 28px;
-    text-align: center;
-    margin-bottom: 28px;
-    cursor: pointer;
-    border: 1px solid #2a2a3e;
-    transition: all 0.3s ease;
-    position: relative;
     overflow: hidden;
-    text-decoration: none;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+    margin-bottom: 28px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
-  .course-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
+  .pricing-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 45px rgba(0,0,0,0.13);
+  }
+  .pricing-card-header {
     background: var(--cc);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    padding: 28px 20px 22px;
+    text-align: center;
   }
-  .course-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 50px rgba(0,0,0,0.35);
-    border-color: var(--cc);
-    text-decoration: none;
-  }
-  .course-card:hover::before { transform: scaleX(1); }
-
-  .course-icon {
-    width: 74px; height: 74px;
+  .pricing-card-header .pc-icon {
+    width: 52px; height: 52px;
     border-radius: 50%;
-    background: var(--cc);
+    background: rgba(255,255,255,0.25);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 20px;
     color: #fff;
-    margin-bottom: 18px;
-    transition: transform 0.3s ease;
+    margin-bottom: 12px;
   }
-  .course-card:hover .course-icon { transform: scale(1.1); }
-
-  .course-card h4 { color: #fff; font-size: 1.25em; margin-bottom: 6px; }
-
-  .course-price {
-    display: inline-block;
-    background: var(--cc);
+  .pricing-card-header h4 {
     color: #fff;
-    font-size: 0.8em;
+    font-size: 1.25em;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+  }
+  .pricing-card-price {
+    text-align: center;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .price-amount {
+    font-size: 2.6em;
     font-weight: 700;
-    padding: 3px 12px;
-    border-radius: 20px;
-    margin-bottom: 14px;
-    letter-spacing: 0.5px;
-  }
-
-  .course-more {
     color: var(--cc);
-    font-size: 0.85em;
-    font-weight: 700;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .price-label {
+    font-size: 0.82em;
+    color: #aaa;
+    margin-top: 4px;
     letter-spacing: 0.5px;
   }
+  .pricing-card-features {
+    padding: 18px 24px;
+    flex: 1;
+  }
+  .pricing-card-features ul {
+    list-style: none;
+    padding: 0; margin: 0;
+  }
+  .pricing-card-features ul li {
+    padding: 8px 0;
+    font-size: 0.9em;
+    color: #555;
+    border-bottom: 1px solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pricing-card-features ul li:last-child { border-bottom: none; }
+  .pricing-card-features ul li::before {
+    content: '✓';
+    color: var(--cc);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .pricing-card-footer {
+    padding: 16px 20px 22px;
+    text-align: center;
+  }
+  .pricing-btn {
+    display: block;
+    background: var(--cc);
+    color: #fff !important;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.88em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .pricing-btn:hover { opacity: 0.82; }
 </style>
 
-<section id="portfolio" class="bg-light-gray">
+<section id="portfolio">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -76,16 +109,31 @@
             </div>
         </div>
         <div class="row">
+        {% assign lang = "en" %}
         {% for post in site.posts %}
             <div class="col-md-4 col-sm-6">
-                <a class="course-card" href="#portfolioModal{{ post.modal-id }}" data-toggle="modal" style="--cc: {{ post.course-color }};">
-                    <div class="course-icon">
-                        <i class="fa {{ post.course-icon }}"></i>
+                <div class="pricing-card" style="--cc: {{ post.course-color }};">
+                    <div class="pricing-card-header">
+                        <div class="pc-icon"><i class="fa {{ post.course-icon }}"></i></div>
+                        <h4 data-ka="{{ post.title-ka }}" data-en="{{ post.title-en }}">{{ post.title }}</h4>
                     </div>
-                    <h4 data-ka="{{ post.title-ka }}" data-en="{{ post.title-en }}">{{ post.title }}</h4>
-                    <div class="course-price" data-ka="${{ post.price }} / გაკვეთილი" data-en="${{ post.price }} / lesson">${{ post.price }} / lesson</div>
-                    <div class="course-more" data-ka="დეტალები →" data-en="Details →">Details →</div>
-                </a>
+                    <div class="pricing-card-price">
+                        <div class="price-amount">${{ post.price }}</div>
+                        <div class="price-label" data-ka="გაკვეთილზე" data-en="per lesson">per lesson</div>
+                    </div>
+                    <div class="pricing-card-features">
+                        <ul>
+                        {% for feature in post.features-en %}
+                            <li data-en="{{ feature }}"
+                                data-ka="{{ post.features-ka[forloop.index0] }}">{{ feature }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <a href="#contact" class="pricing-btn page-scroll"
+                           data-ka="უფასო გაკვეთილი" data-en="Book Free Lesson">Book Free Lesson</a>
+                    </div>
+                </div>
             </div>
         {% endfor %}
         </div>

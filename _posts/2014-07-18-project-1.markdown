@@ -1,12 +1,22 @@
 ---
+title: IGCSE
 title-ka: IGCSE
 title-en: IGCSE
-title: IGCSE
 modal-id: 1
 price: 25
 course-color: "#00C4FF"
 course-icon: fa-graduation-cap
-description-ka: "IGCSE მათემატიკა მოიცავს ალგებრას, გეომეტრიას, ტრიგონომეტრიას, სტატისტიკასა და ალბათობას. ვასწავლი Cambridge და Edexcel IGCSE სილაბუსებზე. შესანიშნავი საფუძველი A-Level ან IB პროგრამებისთვის."
-description-en: "IGCSE Mathematics covers algebra, geometry, trigonometry, statistics and probability. I teach both Cambridge and Edexcel IGCSE syllabuses — an excellent foundation for A-Level or IB."
+features-en:
+  - Cambridge & Edexcel syllabuses
+  - Algebra, geometry & trigonometry
+  - Exam technique & past papers
+  - First lesson free
+features-ka:
+  - Cambridge და Edexcel სილაბუსები
+  - ალგებრა, გეომეტრია, ტრიგონომეტრია
+  - საგამოცდო ტექნიკა და ძველი გამოცდები
+  - პირველი გაკვეთილი უფასო
+description-ka: "IGCSE მათემატიკა მოიცავს ალგებრას, გეომეტრიას, ტრიგონომეტრიას, სტატისტიკასა და ალბათობას. ვასწავლი Cambridge და Edexcel IGCSE სილაბუსებზე."
+description-en: "IGCSE Mathematics covers algebra, geometry, trigonometry, statistics and probability. I teach both Cambridge and Edexcel IGCSE syllabuses."
 date: 2014-07-18
 ---

@@ -1,12 +1,22 @@
 ---
+title: IB Math HL
 title-ka: IB Math HL
 title-en: IB Math HL
-title: IB Math HL
 modal-id: 4
 price: 30
 course-color: "#FF6B9D"
 course-icon: fa-star
-description-ka: "IB Analysis & Approaches HL — მაღალი დონის IB მათემატიკა ძლიერი მათემატიკური მომზადების მქონე სტუდენტებისთვის. უფრო ღრმა კალკულუსი, მტკიცება, კომპლექსური რიცხვები და ვექტორები."
-description-en: "IB Analysis & Approaches HL — the higher level IB maths course for students with strong ability. Rigorous coverage of calculus, proof, complex numbers and vectors."
+features-en:
+  - Analysis & Approaches HL
+  - Complex numbers & vectors
+  - Exploration (IA) support
+  - First lesson free
+features-ka:
+  - Analysis & Approaches HL
+  - კომპლექსური რიცხვები და ვექტორები
+  - Exploration (IA)-ის მხარდაჭერა
+  - პირველი გაკვეთილი უფასო
+description-ka: "IB Analysis & Approaches HL ძლიერი მათემატიკური მომზადების მქონე სტუდენტებისთვის."
+description-en: "IB Analysis & Approaches HL for students with strong mathematical ability."
 date: 2014-07-15
 ---
