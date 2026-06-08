@@ -59,3 +59,15 @@ address:
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+collections:
+  resources:
+    output: true
+    permalink: /resources/:path/
+
+defaults:
+  - scope:
+      path: "_resources"
+      type: "resources"
+    values:
+      layout: "resource-article"

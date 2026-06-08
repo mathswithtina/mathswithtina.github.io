@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<style>
+  .article-hero {
+    background: #1a1a2e;
+    padding: 90px 0 50px;
+    text-align: center;
+  }
+  .article-hero .topic-pill {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: {{ page.topic-color }}22;
+    color: {{ page.topic-color }};
+    border: 1px solid {{ page.topic-color }}66;
+    margin-bottom: 16px;
+  }
+  .article-hero h1 { color: #fff; font-size: 2.2em; margin-bottom: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .article-hero .subtitle { color: #aaa; font-size: 1.1em; max-width: 600px; margin: 0 auto; }
+  .tag-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 20px;
+    background: rgba(255,255,255,0.1); color: #ccc;
+  }
+
+  .article-body { max-width: 780px; margin: 0 auto; padding: 60px 20px 80px; }
+  .article-body h2 { font-size: 1.5em; color: #222; margin: 40px 0 15px; }
+  .article-body h3 { font-size: 1.2em; color: #333; margin: 30px 0 12px; }
+  .article-body p  { font-size: 1.05em; line-height: 1.8; color: #444; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { font-size: 1.05em; line-height: 1.8; color: #444; padding-left: 24px; margin-bottom: 18px; }
+
+  .playground-block {
+    background: #1a1a2e;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px -20px;
+  }
+  .playground-block .playground-label {
+    color: {{ page.topic-color }};
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .playground-block p { color: #bbb; margin-bottom: 16px; }
+
+  .insight-box {
+    background: {{ page.topic-color }}11;
+    border-left: 4px solid {{ page.topic-color }};
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 30px 0;
+  }
+  .insight-box p { color: #333; margin: 0; }
+
+  .try-it {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 28px;
+    margin: 40px 0;
+  }
+  .try-it h3 { color: #222; margin-top: 0; }
+  .try-it .answer { display: none; margin-top: 16px; background: #fff; border-radius: 6px; padding: 16px; border-left: 4px solid {{ page.topic-color }}; }
+  .try-it .reveal-btn {
+    background: {{ page.topic-color }};
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-top: 12px;
+  }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    margin-top: 60px;
+  }
+  .nav-row a { color: {{ page.topic-color }}; font-weight: 600; }
+</style>
+<body id="page-top">
+
+{% include navbar.html %}
+
+<div class="article-hero">
+  <span class="topic-pill">{{ page.topic | capitalize }}</span>
+  <h1>{{ page.title }}</h1>
+  {% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+  <div class="tag-row">
+    {% if page.interactive %}<span class="tag" style="background:{{ page.topic-color }}33;color:{{ page.topic-color }};">⚡ Interactive</span>{% endif %}
+    {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+  </div>
+</div>
+
+<div class="article-body">
+  {{ content }}
+  <div class="nav-row">
+    <a href="{{ site.baseurl }}/resources/{{ page.topic }}/"><i class="fa fa-arrow-left"></i> Back to {{ page.topic | capitalize }}</a>
+    <a href="{{ site.baseurl }}/resources/">All Topics</a>
+  </div>
+</div>
+
+{% include footer.html %}
+{% include js.html %}
+<script>
+  document.querySelectorAll('.reveal-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var answer = this.parentElement.querySelector('.answer');
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+        this.textContent = 'Show Answer';
+      } else {
+        answer.style.display = 'block';
+        this.textContent = 'Hide Answer';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

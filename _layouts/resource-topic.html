@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<style>
+  .topic-hero {
+    background: #1a1a2e;
+    padding: 80px 0 50px;
+    text-align: center;
+    border-bottom: 3px solid {{ page.topic-color }};
+  }
+  .topic-hero .topic-icon-lg {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: {{ page.topic-color }};
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .topic-hero h1 { color: #fff; font-size: 2.4em; margin-bottom: 8px; }
+  .topic-hero p  { color: #aaa; font-size: 1.1em; }
+
+  .articles-grid { padding: 60px 0; background: #f7f7f7; min-height: 60vh; }
+  .article-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 24px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-color: {{ page.topic-color }};
+    text-decoration: none;
+    color: inherit;
+  }
+  .article-card h3 { color: #222; font-size: 1.25em; margin-bottom: 8px; }
+  .article-card p  { color: #777; font-size: 0.92em; margin-bottom: 14px; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 20px;
+    background: #f0f0f0; color: #555;
+  }
+  .badge-interactive {
+    background: {{ page.topic-color }}22;
+    color: {{ page.topic-color }};
+    border: 1px solid {{ page.topic-color }}66;
+  }
+  .empty-state { text-align: center; padding: 80px 20px; color: #aaa; }
+  .back-link { color: {{ page.topic-color }}; font-weight: 600; font-size: 0.9em; }
+  .back-link:hover { color: {{ page.topic-color }}; }
+</style>
+<body id="page-top">
+
+{% include navbar.html %}
+
+<div class="topic-hero">
+  <div class="topic-icon-lg">
+    <i class="fa {{ page.topic-icon }}"></i>
+  </div>
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.topic-description }}</p>
+</div>
+
+<section class="articles-grid">
+  <div class="container">
+    <div style="margin-bottom:30px;">
+      <a href="{{ site.baseurl }}/resources/" class="back-link"><i class="fa fa-arrow-left"></i> All Topics</a>
+    </div>
+
+    {% assign topic_resources = site.resources | where: "topic", page.topic %}
+    {% if topic_resources.size > 0 %}
+      <div class="row">
+        {% for resource in topic_resources %}
+        <div class="col-md-6">
+          <a href="{{ resource.url }}" class="article-card">
+            <h3>{{ resource.title }}</h3>
+            <p>{{ resource.excerpt | strip_html | truncatewords: 25 }}</p>
+            <div class="badge-row">
+              {% if resource.interactive %}<span class="badge badge-interactive">⚡ Interactive</span>{% endif %}
+              {% for tag in resource.tags %}<span class="badge">{{ tag }}</span>{% endfor %}
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <i class="fa fa-flask fa-3x" style="margin-bottom:20px; color:#ddd;"></i>
+        <h3 style="color:#bbb;">Articles coming soon</h3>
+        <p>Interactive lessons for this topic are being prepared.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% include footer.html %}
+{% include js.html %}
+
+</body>
+</html>

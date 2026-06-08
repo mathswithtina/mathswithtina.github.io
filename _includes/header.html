@@ -1,47 +1,4 @@
-<!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">{{site.title}}</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services" data-ka="მთავარი" data-en="Services">მთავარი</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team" data-ka="ჩემს შესახებ" data-en="About Me">ჩემს შესახებ</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio" data-ka="კურსები" data-en="Courses">კურსები</a>
-                    </li>
-                    {% comment %}<li>
-                        <a class="page-scroll" href="#about" data-ka="შეფასებები" data-en="Reviews">შეფასებები</a>
-                    </li>{% endcomment %}
-                    <li>
-                        <a class="page-scroll" href="#contact" data-ka="კონტაქტი" data-en="Contact">კონტაქტი</a>
-                    </li>
-                    <li>
-                        <button id="lang-toggle" style="margin-top:13px;margin-left:10px;padding:4px 12px;background:transparent;border:1px solid #00C4FF;color:#00C4FF;border-radius:3px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:1px;">EN</button>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+{% include navbar.html %}
 
     <!-- Header -->
     <header>
@@ -53,9 +10,3 @@
             </div>
         </div>
     </header>
-<!--
-        {% for page in site.pages %}
-          {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
-        {% endfor %}
- -->
-
