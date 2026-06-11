@@ -79,6 +79,95 @@
     margin-top: 12px;
   }
 
+  /* ── Quiz ── */
+  .quiz-section {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin: 50px 0 40px;
+  }
+  .quiz-section h2 {
+    color: #fff;
+    font-size: 1.4em;
+    margin: 0 0 6px;
+  }
+  .quiz-section .quiz-subtitle {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 28px;
+  }
+  .quiz-question { margin-bottom: 28px; }
+  .quiz-question .q-text {
+    color: #e0e0e0;
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .q-options { display: flex; flex-direction: column; gap: 8px; }
+  .q-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #252540;
+    border: 1px solid #333;
+    border-radius: 7px;
+    padding: 10px 14px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 0.95em;
+    transition: all 0.2s;
+  }
+  .q-option:hover { border-color: {{ page.topic-color }}; color: #fff; }
+  .q-option input[type=radio] { accent-color: {{ page.topic-color }}; flex-shrink: 0; }
+  .q-option.correct { background: #0d3320; border-color: #22c55e; color: #4ade80; }
+  .q-option.wrong   { background: #3a1010; border-color: #ef4444; color: #f87171; }
+  .q-option.correct::after { content: ' ✓'; font-weight: 700; }
+  .q-option.wrong::after   { content: ' ✗'; font-weight: 700; }
+
+  .quiz-submit {
+    background: {{ page.topic-color }};
+    color: #fff;
+    border: none;
+    padding: 13px 34px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+  }
+  .quiz-submit:hover { opacity: 0.85; }
+  .quiz-submit:disabled { opacity: 0.4; cursor: default; }
+
+  .score-box {
+    margin-top: 24px;
+    background: #252540;
+    border-radius: 10px;
+    padding: 28px;
+    text-align: center;
+    border: 2px solid {{ page.topic-color }};
+  }
+  .score-pct {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: {{ page.topic-color }};
+    line-height: 1;
+  }
+  .score-label { color: #aaa; font-size: 0.95em; margin-top: 6px; }
+  .score-msg   { color: #ddd; font-size: 1em; margin-top: 10px; }
+  .score-retry {
+    background: transparent;
+    color: {{ page.topic-color }};
+    border: 1px solid {{ page.topic-color }};
+    padding: 8px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 16px;
+    font-size: 0.9em;
+  }
+
   .nav-row {
     display: flex;
     justify-content: space-between;
@@ -104,6 +193,31 @@
 
 <div class="article-body">
   {{ content }}
+
+  {% if page.quiz %}
+  <div class="quiz-section">
+    <h2>Test Your Understanding</h2>
+    <p class="quiz-subtitle">Answer all questions, then submit to see your score.</p>
+    <div id="quiz-container">
+      {% for item in page.quiz %}
+      <div class="quiz-question" data-correct="{{ item.answer }}">
+        <p class="q-text">{{ forloop.index }}. {{ item.q }}</p>
+        <div class="q-options">
+          {% for opt in item.options %}
+          <label class="q-option">
+            <input type="radio" name="q{{ forloop.parentloop.index }}" value="{{ forloop.index0 }}">
+            <span>{{ opt }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+      <button class="quiz-submit" id="quiz-submit">Submit Quiz</button>
+      <div id="quiz-result"></div>
+    </div>
+  </div>
+  {% endif %}
+
   <div class="nav-row">
     <a href="{{ site.baseurl }}/resources/{{ page.topic }}/"><i class="fa fa-arrow-left"></i> Back to {{ page.topic | capitalize }}</a>
     <a href="{{ site.baseurl }}/resources/">All Topics</a>
@@ -113,6 +227,7 @@
 {% include footer.html %}
 {% include js.html %}
 <script>
+  /* Reveal answer buttons */
   document.querySelectorAll('.reveal-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var answer = this.parentElement.querySelector('.answer');
@@ -125,6 +240,55 @@
       }
     });
   });
+
+  /* Quiz system */
+  var submitBtn = document.getElementById('quiz-submit');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function() {
+      var questions = document.querySelectorAll('.quiz-question');
+      var correct = 0;
+      var answered = 0;
+
+      questions.forEach(function(q) {
+        var selected = q.querySelector('input:checked');
+        var correctIdx = parseInt(q.dataset.correct);
+        var opts = q.querySelectorAll('.q-option');
+
+        if (selected) answered++;
+
+        opts.forEach(function(opt, j) {
+          opt.style.pointerEvents = 'none';
+          if (j === correctIdx) opt.classList.add('correct');
+        });
+
+        if (selected) {
+          var selIdx = parseInt(selected.value);
+          if (selIdx === correctIdx) {
+            correct++;
+          } else {
+            selected.closest('.q-option').classList.add('wrong');
+          }
+        }
+      });
+
+      var total = questions.length;
+      var pct = Math.round((correct / total) * 100);
+      var msg = pct === 100 ? 'Perfect score!' :
+                pct >= 80  ? 'Great work!' :
+                pct >= 60  ? 'Good effort — review the highlighted answers.' :
+                             'Keep practising — check the correct answers above.';
+
+      document.getElementById('quiz-result').innerHTML =
+        '<div class="score-box">' +
+        '<div class="score-pct">' + pct + '%</div>' +
+        '<div class="score-label">' + correct + ' out of ' + total + ' correct</div>' +
+        '<div class="score-msg">' + msg + '</div>' +
+        '<button class="score-retry" onclick="location.reload()">Try Again</button>' +
+        '</div>';
+
+      this.disabled = true;
+    });
+  }
 </script>
 
 </body>
