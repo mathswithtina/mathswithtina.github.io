@@ -66,14 +66,17 @@
   <div class="topic-icon-lg">
     <i class="fa {{ page.topic-icon }}"></i>
   </div>
-  <h1>{{ page.title }}</h1>
-  <p>{{ page.topic-description }}</p>
+  <h1 {% if page.title-ka %}data-en="{{ page.title }}" data-ka="{{ page.title-ka }}"{% endif %}>{{ page.title }}</h1>
+  <p {% if page.topic-description-ka %}data-en="{{ page.topic-description }}" data-ka="{{ page.topic-description-ka }}"{% endif %}>{{ page.topic-description }}</p>
 </div>
 
 <section class="articles-grid">
   <div class="container">
     <div style="margin-bottom:30px;">
-      <a href="{{ site.baseurl }}/resources/" class="back-link"><i class="fa fa-arrow-left"></i> All Topics</a>
+      <a href="{{ site.baseurl }}/resources/" class="back-link">
+        <i class="fa fa-arrow-left"></i>
+        <span data-en="All Topics" data-ka="ყველა თემა">All Topics</span>
+      </a>
     </div>
 
     {% assign topic_resources = site.resources | where: "topic", page.topic %}
@@ -82,10 +85,10 @@
         {% for resource in topic_resources %}
         <div class="col-md-6">
           <a href="{{ resource.url }}" class="article-card">
-            <h3>{{ resource.title }}</h3>
-            <p>{{ resource.excerpt | strip_html | truncatewords: 25 }}</p>
+            <h3 {% if resource.title-ka %}data-en="{{ resource.title }}" data-ka="{{ resource.title-ka }}"{% endif %}>{{ resource.title }}</h3>
+            <p {% if resource.subtitle-ka %}data-en="{{ resource.subtitle }}" data-ka="{{ resource.subtitle-ka }}"{% else %}{% endif %}>{{ resource.subtitle | default: resource.excerpt | strip_html | truncatewords: 20 }}</p>
             <div class="badge-row">
-              {% if resource.interactive %}<span class="badge badge-interactive">⚡ Interactive</span>{% endif %}
+              {% if resource.interactive %}<span class="badge badge-interactive" data-en="⚡ Interactive" data-ka="⚡ ინტერაქტიული">⚡ Interactive</span>{% endif %}
               {% for tag in resource.tags %}<span class="badge">{{ tag }}</span>{% endfor %}
             </div>
           </a>
@@ -95,8 +98,8 @@
     {% else %}
       <div class="empty-state">
         <i class="fa fa-flask fa-3x" style="margin-bottom:20px; color:#ddd;"></i>
-        <h3 style="color:#bbb;">Articles coming soon</h3>
-        <p>Interactive lessons for this topic are being prepared.</p>
+        <h3 style="color:#bbb;" data-en="Articles coming soon" data-ka="სტატიები მალე">Articles coming soon</h3>
+        <p data-en="Interactive lessons for this topic are being prepared." data-ka="ამ თემის ინტერაქტიული გაკვეთილები მზადდება.">Interactive lessons for this topic are being prepared.</p>
       </div>
     {% endif %}
   </div>

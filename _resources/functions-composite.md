@@ -1,64 +1,100 @@
 ---
 title: "Composite Functions — functions inside functions"
+title-ka: "შედგენილი ფუნქცია — ფუნქცია ფუნქციის შიგნით"
 subtitle: "f(g(x)) means: run g first, then feed the result to f. Composition is the foundation of the chain rule."
+subtitle-ka: "f(g(x)) ნიშნავს: ჯერ g გაუშვი, შემდეგ შედეგი f-ს მიაწოდე. შედგენა ჯაჭვის წესის საფუძველია."
 topic: functions
 topic-color: "#00C4FF"
 interactive: true
 tags: [IGCSE, IB, A-Level, Functions]
 quiz:
   - q: "If f(x) = x² and g(x) = x + 1, what is f(g(x))?"
+    q_ka: "თუ f(x) = x² და g(x) = x + 1, რა არის f(g(x))?"
     options: ["x² + 1", "(x+1)²", "x² + x + 1", "x³ + x²"]
+    options_ka: ["x² + 1", "(x+1)²", "x² + x + 1", "x³ + x²"]
     answer: 1
   - q: "If f(x) = 2x and g(x) = x − 3, what is g(f(x))?"
+    q_ka: "თუ f(x) = 2x და g(x) = x − 3, რა არის g(f(x))?"
     options: ["2x − 3", "2(x − 3)", "2x − 6", "x − 6"]
+    options_ka: ["2x − 3", "2(x − 3)", "2x − 6", "x − 6"]
     answer: 2
   - q: "Is f(g(x)) always equal to g(f(x))?"
+    q_ka: "f(g(x)) ყოველთვის უდრის g(f(x))-ს?"
     options: ["Yes, always", "No, composition is not commutative in general", "Only for linear functions", "Only if both functions are invertible"]
+    options_ka: ["დიახ, ყოველთვის", "არა, შედგენა ზოგადად კომუტაციური არ არის", "მხოლოდ წრფივი ფუნქციებისთვის", "მხოლოდ თუ ორივე ინვერტირებადია"]
     answer: 1
   - q: "If f(g(3)) = 10 and g(3) = 4, then f(4) ="
+    q_ka: "თუ f(g(3)) = 10 და g(3) = 4, მაშინ f(4) ="
     options: ["3", "4", "10", "12"]
+    options_ka: ["3", "4", "10", "12"]
     answer: 2
   - q: "The notation (f ∘ g)(x) means:"
+    q_ka: "აღნიშვნა (f ∘ g)(x) ნიშნავს:"
     options: ["f(x) × g(x)", "f(x) + g(x)", "f(g(x))", "g(f(x))"]
+    options_ka: ["f(x) × g(x)", "f(x) + g(x)", "f(g(x))", "g(f(x))"]
     answer: 2
 ---
 
-A composite function is created by feeding the output of one function as the input to another. f(g(x)) means: compute g(x) first, then apply f to that result.
+<div class="lang-block lang-en">
+<p>A composite function is created by feeding the output of one function as the input to another. f(g(x)) means: compute g(x) first, then apply f to that result.</p>
 
-It's like an assembly line: x → [g] → g(x) → [f] → f(g(x)).
+<p>It's like an assembly line: x → [g] → g(x) → [f] → f(g(x)).</p>
 
-The notation **f ∘ g** (read: "f composed with g") means apply g first, then f. The order matters!
+<p>The notation <strong>f ∘ g</strong> (read: "f composed with g") means apply g first, then f. The order matters!</p>
 
-## Example
+<h2>Example</h2>
 
-Let f(x) = x² and g(x) = 3x − 1.
+<p>Let f(x) = x² and g(x) = 3x − 1.</p>
 
-- **f(g(x)):** First g: 3x − 1. Then f: (3x − 1)² = 9x² − 6x + 1.
-- **g(f(x)):** First f: x². Then g: 3x² − 1.
+<ul>
+  <li><strong>f(g(x)):</strong> First g: 3x − 1. Then f: (3x − 1)² = 9x² − 6x + 1.</li>
+  <li><strong>g(f(x)):</strong> First f: x². Then g: 3x² − 1.</li>
+</ul>
 
-These are completely different! Composition is **not** commutative.
+<p>These are completely different! Composition is <strong>not</strong> commutative.</p>
+</div>
 
-## Playground — see both compositions
+<div class="lang-block lang-ka">
+<p>შედგენილი ფუნქცია იქმნება, როდესაც ერთი ფუნქციის გამოსვლა მეორის შეყვანად გამოიყენება. f(g(x)) ნიშნავს: ჯერ გამოვთვალოთ g(x), შემდეგ გამოვიყენოთ f ამ შედეგზე.</p>
+
+<p>ეს კონვეიერის მსგავსია: x → [g] → g(x) → [f] → f(g(x)).</p>
+
+<p>აღნიშვნა <strong>f ∘ g</strong> (იკითხება: "f შედგენილი g-თან") ნიშნავს ჯერ g-ს გამოყენებას, შემდეგ f-ს. თანმიმდევრობა მნიშვნელოვანია!</p>
+
+<h2>მაგალითი</h2>
+
+<p>დავუშვათ f(x) = x² და g(x) = 3x − 1.</p>
+
+<ul>
+  <li><strong>f(g(x)):</strong> ჯერ g: 3x − 1. შემდეგ f: (3x − 1)² = 9x² − 6x + 1.</li>
+  <li><strong>g(f(x)):</strong> ჯერ f: x². შემდეგ g: 3x² − 1.</li>
+</ul>
+
+<p>ეს სრულიად განსხვავებულია! შედგენა <strong>არ არის</strong> კომუტაციური.</p>
+</div>
 
 <div class="playground-block">
-  <div class="playground-label">⚡ Interactive — compare f(g(x)) and g(f(x))</div>
-  <p>f(x) = x² (blue), g(x) = x + a (drag <strong>a</strong> to shift). The pink curve is f(g(x)) = (x+a)², the green is g(f(x)) = x² + a. They are usually different!</p>
+  <div class="playground-label" data-en="⚡ Interactive — compare f(g(x)) and g(f(x))" data-ka="⚡ ინტერაქტიული — შეადარე f(g(x)) და g(f(x))">⚡ Interactive — compare f(g(x)) and g(f(x))</div>
+  <p data-en="f(x) = x² (blue), g(x) = x + a (drag a to shift). The pink curve is f(g(x)) = (x+a)², the green is g(f(x)) = x² + a. They are usually different!" data-ka="f(x) = x² (ლურჯი), g(x) = x + a (გადაათრიე a გადასაადგილებლად). ვარდისფერი მრუდი f(g(x)) = (x+a)²-ია, მწვანე — g(f(x)) = x² + a. ჩვეულებრივ განსხვავებულია!">f(x) = x² (blue), g(x) = x + a (drag <strong>a</strong> to shift). The pink curve is f(g(x)) = (x+a)², the green is g(f(x)) = x² + a. They are usually different!</p>
   <div id="calc-comp" style="width:100%;height:420px;border-radius:8px;overflow:hidden;"></div>
 </div>
 
+<div class="lang-block lang-en">
 <div class="insight-box">
   <p><strong>When are they equal?</strong> f(g(x)) = g(f(x)) for all x is a special condition. It holds when f and g are inverses of each other (composing with your own inverse gives x back), or in a few special cases like both being linear with the same slope.</p>
 </div>
 
-## Domain of a composite function
+<h2>Domain of a composite function</h2>
 
-The domain of f(g(x)) must satisfy:
-1. x must be in the domain of g
-2. g(x) must be in the domain of f
+<p>The domain of f(g(x)) must satisfy:</p>
+<ol>
+  <li>x must be in the domain of g</li>
+  <li>g(x) must be in the domain of f</li>
+</ol>
 
-**Example:** f(x) = √x (needs x ≥ 0), g(x) = x − 4.
+<p><strong>Example:</strong> f(x) = √x (needs x ≥ 0), g(x) = x − 4.</p>
 
-f(g(x)) = √(x − 4). For this to work, x − 4 ≥ 0, so **x ≥ 4**.
+<p>f(g(x)) = √(x − 4). For this to work, x − 4 ≥ 0, so <strong>x ≥ 4</strong>.</p>
 
 <div class="try-it">
   <h3>Practice</h3>
@@ -69,6 +105,36 @@ f(g(x)) = √(x − 4). For this to work, x − 4 ≥ 0, so **x ≥ 4**.
     <p>f(3) = 2(3) + 1 = 7</p>
     <p>g(7) = 7² = <strong>49</strong></p>
   </div>
+</div>
+</div>
+
+<div class="lang-block lang-ka">
+<div class="insight-box">
+  <p><strong>როდის უდრის ერთმანეთს?</strong> f(g(x)) = g(f(x)) ყველა x-სთვის სპეციალური პირობაა. ეს სრულდება, როდესაც f და g ერთმანეთის ინვერსიებია (ინვერსიასთან შედგენა x-ს უბრუნებს), ან რამდენიმე სპეციალურ შემთხვევაში, მაგ. ორივე ერთი კოეფიციენტის მქონე წრფივია.</p>
+</div>
+
+<h2>შედგენილი ფუნქციის განსაზღვრის არე</h2>
+
+<p>f(g(x))-ის განსაზღვრის არე უნდა აკმაყოფილებდეს:</p>
+<ol>
+  <li>x უნდა იყოს g-ის განსაზღვრის არეში</li>
+  <li>g(x) უნდა იყოს f-ის განსაზღვრის არეში</li>
+</ol>
+
+<p><strong>მაგალითი:</strong> f(x) = √x (საჭიროებს x ≥ 0), g(x) = x − 4.</p>
+
+<p>f(g(x)) = √(x − 4). რომ იმუშაოს, x − 4 ≥ 0, ასე რომ <strong>x ≥ 4</strong>.</p>
+
+<div class="try-it">
+  <h3>სავარჯიშო</h3>
+  <p>მოცემულია f(x) = 2x + 1 და g(x) = x². იპოვე (g ∘ f)(3).</p>
+  <button class="reveal-btn">პასუხის ჩვენება</button>
+  <div class="answer">
+    <p>(g ∘ f)(3) = g(f(3))</p>
+    <p>f(3) = 2(3) + 1 = 7</p>
+    <p>g(7) = 7² = <strong>49</strong></p>
+  </div>
+</div>
 </div>
 
 <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>

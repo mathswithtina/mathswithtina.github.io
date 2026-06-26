@@ -9,6 +9,14 @@
       el.textContent = el.getAttribute('data-' + l);
     });
 
+    document.querySelectorAll('.lang-block').forEach(function (el) {
+      if (el.classList.contains('lang-' + l)) {
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+
     document.querySelectorAll('[data-en-placeholder]').forEach(function (el) {
       el.placeholder = el.getAttribute('data-' + l + '-placeholder');
     });

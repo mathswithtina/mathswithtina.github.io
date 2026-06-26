@@ -2,6 +2,8 @@
 <html>
 {% include head.html %}
 <style>
+  .lang-block.lang-ka { display: none; }
+
   .article-hero {
     background: #1a1a2e;
     padding: 90px 0 50px;
@@ -33,6 +35,9 @@
   .article-body h3 { font-size: 1.2em; color: #333; margin: 30px 0 12px; }
   .article-body p  { font-size: 1.05em; line-height: 1.8; color: #444; margin-bottom: 18px; }
   .article-body ul, .article-body ol { font-size: 1.05em; line-height: 1.8; color: #444; padding-left: 24px; margin-bottom: 18px; }
+  .article-body table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .article-body table th, .article-body table td { padding: 10px 14px; border: 1px solid #e0e0e0; font-size: 0.95em; }
+  .article-body table th { background: #f5f5f5; font-weight: 700; }
 
   .playground-block {
     background: #1a1a2e;
@@ -183,10 +188,12 @@
 
 <div class="article-hero">
   <span class="topic-pill">{{ page.topic | capitalize }}</span>
-  <h1>{{ page.title }}</h1>
-  {% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+  <h1 {% if page.title-ka %}data-en="{{ page.title }}" data-ka="{{ page.title-ka }}"{% endif %}>{{ page.title }}</h1>
+  {% if page.subtitle %}
+  <p class="subtitle" {% if page.subtitle-ka %}data-en="{{ page.subtitle }}" data-ka="{{ page.subtitle-ka }}"{% endif %}>{{ page.subtitle }}</p>
+  {% endif %}
   <div class="tag-row">
-    {% if page.interactive %}<span class="tag" style="background:{{ page.topic-color }}33;color:{{ page.topic-color }};">⚡ Interactive</span>{% endif %}
+    {% if page.interactive %}<span class="tag" style="background:{{ page.topic-color }}33;color:{{ page.topic-color }};" data-en="⚡ Interactive" data-ka="⚡ ინტერაქტიული">⚡ Interactive</span>{% endif %}
     {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
   </div>
 </div>
@@ -196,65 +203,65 @@
 
   {% if page.quiz %}
   <div class="quiz-section">
-    <h2>Test Your Understanding</h2>
-    <p class="quiz-subtitle">Answer all questions, then submit to see your score.</p>
+    <h2 data-en="Test Your Understanding" data-ka="შეამოწმე ცოდნა">Test Your Understanding</h2>
+    <p class="quiz-subtitle" data-en="Answer all questions, then submit to see your score." data-ka="უპასუხე ყველა კითხვას, შემდეგ გამოაგზავნე შეფასებისთვის.">Answer all questions, then submit to see your score.</p>
     <div id="quiz-container">
       {% for item in page.quiz %}
       <div class="quiz-question" data-correct="{{ item.answer }}">
-        <p class="q-text">{{ forloop.index }}. {{ item.q }}</p>
+        <p class="q-text" {% if item.q_ka %}data-en="{{ forloop.index }}. {{ item.q }}" data-ka="{{ forloop.index }}. {{ item.q_ka }}"{% endif %}>{{ forloop.index }}. {{ item.q }}</p>
         <div class="q-options">
           {% for opt in item.options %}
           <label class="q-option">
             <input type="radio" name="q{{ forloop.parentloop.index }}" value="{{ forloop.index0 }}">
-            <span>{{ opt }}</span>
+            <span {% if item.options_ka %}data-en="{{ opt }}" data-ka="{{ item.options_ka[forloop.index0] }}"{% endif %}>{{ opt }}</span>
           </label>
           {% endfor %}
         </div>
       </div>
       {% endfor %}
-      <button class="quiz-submit" id="quiz-submit">Submit Quiz</button>
+      <button class="quiz-submit" id="quiz-submit" data-en="Submit Quiz" data-ka="გამოგზავნა">Submit Quiz</button>
       <div id="quiz-result"></div>
     </div>
   </div>
   {% endif %}
 
   <div class="nav-row">
-    <a href="{{ site.baseurl }}/resources/{{ page.topic }}/"><i class="fa fa-arrow-left"></i> Back to {{ page.topic | capitalize }}</a>
-    <a href="{{ site.baseurl }}/resources/">All Topics</a>
+    <a href="{{ site.baseurl }}/resources/{{ page.topic }}/">
+      <i class="fa fa-arrow-left"></i>
+      <span data-en="Back to {{ page.topic | capitalize }}" data-ka="{{ page.topic | capitalize }}-ზე დაბრუნება">Back to {{ page.topic | capitalize }}</span>
+    </a>
+    <a href="{{ site.baseurl }}/resources/" data-en="All Topics" data-ka="ყველა თემა">All Topics</a>
   </div>
 </div>
 
 {% include footer.html %}
 {% include js.html %}
 <script>
-  /* Reveal answer buttons */
   document.querySelectorAll('.reveal-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var answer = this.parentElement.querySelector('.answer');
+      var isKa = (localStorage.getItem('lang') || 'ka') === 'ka';
       if (answer.style.display === 'block') {
         answer.style.display = 'none';
-        this.textContent = 'Show Answer';
+        this.textContent = isKa ? 'პასუხის ჩვენება' : 'Show Answer';
       } else {
         answer.style.display = 'block';
-        this.textContent = 'Hide Answer';
+        this.textContent = isKa ? 'პასუხის დამალვა' : 'Hide Answer';
       }
     });
   });
 
-  /* Quiz system */
   var submitBtn = document.getElementById('quiz-submit');
   if (submitBtn) {
     submitBtn.addEventListener('click', function() {
       var questions = document.querySelectorAll('.quiz-question');
       var correct = 0;
-      var answered = 0;
+      var isKa = (localStorage.getItem('lang') || 'ka') === 'ka';
 
       questions.forEach(function(q) {
         var selected = q.querySelector('input:checked');
         var correctIdx = parseInt(q.dataset.correct);
         var opts = q.querySelectorAll('.q-option');
-
-        if (selected) answered++;
 
         opts.forEach(function(opt, j) {
           opt.style.pointerEvents = 'none';
@@ -273,17 +280,30 @@
 
       var total = questions.length;
       var pct = Math.round((correct / total) * 100);
-      var msg = pct === 100 ? 'Perfect score!' :
-                pct >= 80  ? 'Great work!' :
-                pct >= 60  ? 'Good effort — review the highlighted answers.' :
-                             'Keep practising — check the correct answers above.';
+
+      var msg, retryTxt;
+      if (isKa) {
+        msg = pct === 100 ? 'სრულყოფილი შედეგი!' :
+              pct >= 80  ? 'კარგი მუშაობა!' :
+              pct >= 60  ? 'კარგი მცდელობა — გადახედე სწორ პასუხებს.' :
+                           'განაგრძე ვარჯიში — შეამოწმე სწორი პასუხები.';
+        retryTxt = 'თავიდან ცდა';
+      } else {
+        msg = pct === 100 ? 'Perfect score!' :
+              pct >= 80  ? 'Great work!' :
+              pct >= 60  ? 'Good effort — review the highlighted answers.' :
+                           'Keep practising — check the correct answers above.';
+        retryTxt = 'Try Again';
+      }
+
+      var outOf = isKa ? (correct + ' / ' + total + ' სწორი') : (correct + ' out of ' + total + ' correct');
 
       document.getElementById('quiz-result').innerHTML =
         '<div class="score-box">' +
         '<div class="score-pct">' + pct + '%</div>' +
-        '<div class="score-label">' + correct + ' out of ' + total + ' correct</div>' +
+        '<div class="score-label">' + outOf + '</div>' +
         '<div class="score-msg">' + msg + '</div>' +
-        '<button class="score-retry" onclick="location.reload()">Try Again</button>' +
+        '<button class="score-retry" onclick="location.reload()">' + retryTxt + '</button>' +
         '</div>';
 
       this.disabled = true;
